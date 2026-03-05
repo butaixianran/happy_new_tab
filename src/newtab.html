@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy New Tab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="app-header">
+  <button class="icon-btn" id="btnMenu" data-tip data-tip-pos="bottom" data-i18n-tip="menuTooltip">
+    <span class="mi mi-menu"></span>
+  </button>
+  <img class="logo" src="icon128.png" alt="logo">
+  <span class="title" id="spaceTitle">Happy New Tab</span>
+
+  <button class="icon-btn" id="btnViewList" data-tip data-tip-pos="bottom" data-i18n-tip="viewListTip">
+    <span class="mi mi-list"></span>
+  </button>
+  <button class="icon-btn" id="btnViewCard" data-tip data-tip-pos="bottom" data-i18n-tip="viewCardTip">
+    <span class="mi mi-card"></span>
+  </button>
+  <button class="icon-btn" id="btnViewIcon" data-tip data-tip-pos="bottom" data-i18n-tip="viewIconTip">
+    <span class="mi mi-icon-view"></span>
+  </button>
+  <button class="icon-btn" id="btnSync" data-tip data-tip-pos="bottom" data-i18n-tip="syncTooltip">
+    <span class="mi mi-sync"></span>
+  </button>
+  <button class="icon-btn" id="btnRefresh" data-tip data-tip-pos="bottom" data-i18n-tip="refreshTooltip">
+    <span class="mi mi-refresh"></span>
+  </button>
+</header>
+
+<!-- Layout -->
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-body" id="sidebarBody">
+      <div class="sidebar-section-hd">
+        <span data-i18n="spaceName">Spaces</span>
+        <button class="icon-btn primary" id="btnAddSpace" data-tip data-tip-pos="right" data-i18n-tip="addSpace">
+          <span class="mi mi-add"></span>
+        </button>
+      </div>
+      <div id="spaceList"></div>
+    </div>
+    <div class="sidebar-footer">
+      <button class="btn" id="btnSettings" style="width:100%;gap:8px;justify-content:flex-start;" data-tip data-tip-pos="top" data-i18n-tip="settingsTip">
+        <span class="mi mi-settings"></span>
+        <span data-i18n="settings">Settings</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Content -->
+  <main class="content" id="content">
+    <div class="content-hd">
+      <button class="icon-btn primary" id="btnAddGroup" data-tip data-tip-pos="left" data-i18n-tip="addGroup">
+        <span class="mi mi-add"></span>
+      </button>
+    </div>
+    <div id="groupList"></div>
+  </main>
+</div>
+
+<!-- Toast -->
+<div class="toast-wrap" id="toastWrap"></div>
+<!-- Modal -->
+<div id="modalRoot"></div>
+
+<script src="i18n.js"></script>
+<script src="storage.js"></script>
+<script src="newtab.js"></script>
+</body>
+</html>

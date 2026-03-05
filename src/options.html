@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy New Tab - Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="app-header">
+  <button class="icon-btn" id="btnMenu" data-tip data-tip-pos="bottom" data-i18n-tip="menuTooltip">
+    <span class="mi mi-menu"></span>
+  </button>
+  <img class="logo" src="icon128.png" alt="logo">
+  <span class="title" data-i18n="settings">Settings</span>
+  <button class="icon-btn" id="btnSync" data-tip data-tip-pos="bottom" data-i18n-tip="syncTooltip">
+    <span class="mi mi-sync"></span>
+  </button>
+  <button class="icon-btn" id="btnRefresh" data-tip data-tip-pos="bottom" data-i18n-tip="refreshTooltip">
+    <span class="mi mi-refresh"></span>
+  </button>
+</header>
+
+<div class="opt-layout">
+
+  <!-- Left nav -->
+  <aside class="opt-sidebar" id="optSidebar">
+    <nav class="opt-nav">
+      <div class="opt-nav-item active" data-page="sync">
+        <span class="mi mi-sync"></span>
+        <span data-i18n="syncSettings">Sync Settings</span>
+      </div>
+      <div class="opt-nav-item" data-page="tutorial">
+        <span class="mi mi-info"></span>
+        <span data-i18n="syncTutorial">Sync Tutorial</span>
+      </div>
+      <div class="opt-nav-item" data-page="io">
+        <span class="mi mi-import"></span>
+        <span data-i18n="importExport">Import / Export</span>
+      </div>
+      <div class="opt-nav-item" data-page="lang">
+        <span class="mi mi-language"></span>
+        <span data-i18n="langSettings">Language</span>
+      </div>
+    </nav>
+    <div class="opt-footer">
+      <button class="btn" id="btnBack" style="width:100%;justify-content:flex-start;gap:8px;">
+        <span class="mi mi-back"></span>
+        <span data-i18n="back">Back</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Right content -->
+  <main class="opt-content" id="optContent"></main>
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script src="i18n.js"></script>
+<script src="storage.js"></script>
+<script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy New Tab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="popup-wrap">
+  <div class="popup-logo-row">
+    <img class="popup-logo" src="icon128.png" alt="logo">
+    <span class="popup-appname">Happy New Tab</span>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" data-i18n="selectSpace">Select Space</label>
+    <select class="form-select" id="spaceSelect"></select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" data-i18n="selectGroup">Select Group</label>
+    <select class="form-select" id="groupSelect"></select>
+  </div>
+
+  <div class="popup-btns">
+    <button class="btn btn-outline" id="btnAll">
+      <span class="mi mi-bookmark"></span>
+      <span data-i18n="saveAll">Save All Tabs</span>
+    </button>
+    <button class="btn btn-primary" id="btnCur">
+      <span class="mi mi-add"></span>
+      <span data-i18n="saveCurrent">Save Current Tab</span>
+    </button>
+  </div>
+
+  <div id="result" style="margin-top:8px;"></div>
+</div>
+<script src="i18n.js"></script>
+<script src="storage.js"></script>
+<script src="popup.js"></script>
+</body>
+</html>
