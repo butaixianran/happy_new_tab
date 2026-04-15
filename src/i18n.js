@@ -43,6 +43,7 @@ const I18N = {
     selectSpace: "Select Space", selectGroup: "Select Group",
     newGroupOpt: "-- New Group --",
     saveCurrent: "Save Current Tab", saveAll: "Save All Tabs",
+    removeTab: "Remove Tab",
     tabSaved: "Tab saved!", tabsSaved: "tabs saved!",
     noTabs: "No tabs to save.",
 
@@ -171,6 +172,7 @@ const I18N = {
     selectSpace: "选择空间", selectGroup: "选择分组",
     newGroupOpt: "-- 新建分组 --",
     saveCurrent: "保存当前标签页", saveAll: "保存所有标签页",
+    removeTab: "删除标签",
     tabSaved: "标签页保存成功！", tabsSaved: "个标签页保存成功！",
     noTabs: "没有可保存的标签页。",
 

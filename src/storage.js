@@ -225,7 +225,62 @@ async function importAll(imported) {
   }
 }
 
+/**
+ * 标准化 URL 用于比较（去除 fragment/hash）
+ * @param {string} url
+ * @returns {string}
+ */
+function normalizeUrlForMatch(url) {
+  try {
+    const u = new URL(url);
+    u.hash = '';
+    return u.toString();
+  } catch {
+    return url || '';
+  }
+}
+
+/**
+ * 在指定的空间和分组中查找是否存在与给定 URL 匹配的标签
+ * @param {Array} spacesArray - spaces 数据数组（通常来自 getSpaces().data）
+ * @param {string} spaceId
+ * @param {string} groupId
+ * @param {string} tabUrl
+ * @returns {Object|null} 匹配到的标签对象或 null
+ */
+function findTabInGroup(spacesArray, spaceId, groupId, tabUrl) {
+  if (!spacesArray || !spaceId || !groupId || !tabUrl) return null;
+  const sp = spacesArray.find(s => s.id === spaceId);
+  if (!sp) return null;
+  const g = sp.groups.find(x => x.id === groupId);
+  if (!g) return null;
+  const target = normalizeUrlForMatch(tabUrl);
+  return g.tabs.find(t => normalizeUrlForMatch(t.url) === target) || null;
+}
+
+/**
+ * 从指定的空间/分组中删除指定的标签（按 tabId）并保存到本地存储
+ * @param {string} spaceId
+ * @param {string} groupId
+ * @param {string} tabId
+ * @returns {Promise<void>}
+ */
+async function deleteTab(spaceId, groupId, tabId) {
+  if (!spaceId || !groupId || !tabId) return;
+  const res = await getSpaces();
+  const sps = res.data || [];
+  const sp = sps.find(s => s.id === spaceId);
+  if (!sp) return;
+  const g = sp.groups.find(g => g.id === groupId);
+  if (!g) return;
+  const idx = g.tabs.findIndex(t => t.id === tabId);
+  if (idx !== -1) {
+    g.tabs.splice(idx, 1);
+    await saveSpaces(sps);
+  }
+}
+
 // 挂载到全局
 if (typeof window !== 'undefined') {
-  window.Storage = { KEYS, genId, faviconUrl, defaultSpaces, defaultSetting, getSpaces, saveSpaces, getPopupSel, savePopupSel, getSetting, saveSetting, getOAuth, saveOAuth, exportAll, importAll };
+  window.Storage = { KEYS, genId, faviconUrl, defaultSpaces, defaultSetting, getSpaces, saveSpaces, getPopupSel, savePopupSel, getSetting, saveSetting, getOAuth, saveOAuth, exportAll, importAll, normalizeUrlForMatch, findTabInGroup, deleteTab };
 }
