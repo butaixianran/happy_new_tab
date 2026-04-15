@@ -98,6 +98,7 @@
 
 只不过，我要求AI用Google Font，但AI声称由于网络问题，它自动更换到了Font Awesome，并沿用了Google Font的文件名。
 
-# ChangeLog
-
+# 更新说明
+#### v1.1.0
+* 打开popup页面后，如果当前标签页，在popup页面上选择的分组中已经存在，就显示删除标签按钮，可以从分组中删除这个页面
 
