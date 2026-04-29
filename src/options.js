@@ -22,7 +22,11 @@ async function init() {
   document.getElementById('btnRefresh').addEventListener('click', () => location.reload());
   document.getElementById('btnSync').addEventListener('click', doSync);
   document.getElementById('btnBack').addEventListener('click', () => {
-    chrome.tabs.update({ url: 'chrome://newtab/' });
+    //这个实际上在kiwi浏览器中无效：chrome.tabs.update({ url: 'chrome://newtab/' });
+    //在kiwi手机浏览器中，扩展是kiwi或者kiwi-extension开头的地址
+    //而且，不能使用update，在kiwi中，chrome.tabs.update会返回错误：no selected tab
+    //测试了一大圈，唯一一个可行的，就是下面这句话，没有其他方法
+    chrome.tabs.create({url:"newtab.html"});
   });
 
   // 导航项点击

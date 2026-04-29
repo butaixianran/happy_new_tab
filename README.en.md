@@ -94,5 +94,8 @@ The extension icons use **Font Awesome**, not Google Fonts.
 The AI was asked to use Google Fonts, but it claimed that due to network issue, it switched to Font Awesome while retaining Google Font filename.
 
 # ChangeLog
+### v1.1.1
+* Make it works better with kiwi browser, which uses `kiwi-extension://` instead of `chrome-extension://`.
+
 ### v1.1.0
 * After opening the popup page, if the current tab already exists in the group selected on the popup, a "Remove Tab" button will be displayed, allowing the page to be removed from that group.

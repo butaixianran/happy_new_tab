@@ -50,7 +50,10 @@ async function init() {
   document.getElementById('btnRefresh').addEventListener('click', () => location.reload());
   document.getElementById('btnAddSpace').addEventListener('click', () => openSpaceDialog(null));
   document.getElementById('btnSettings').addEventListener('click', () => {
-    chrome.tabs.update({ url: chrome.runtime.getURL('options.html') });
+    //这个在kiwi浏览器无效：chrome.tabs.update({ url: chrome.runtime.getURL('options.html') });
+    //在kiwi手机浏览器中，chrome.runtime.getURL返回的是chrome-extension开头的地址
+    //但是，kiwi实际上支持的扩展前缀，是kiwi-extension开头的地址，所以这里需要特殊处理一下
+    chrome.runtime.openOptionsPage();
   });
   document.getElementById('btnAddGroup').addEventListener('click', () => {
     if (curSpaceId) openGroupDialog(curSpaceId, null);
